@@ -3,6 +3,7 @@ package com.varun.mywallet.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -53,7 +54,8 @@ public class MyController implements InitializingBean {
 		if (CollectionUtils.isEmpty(idToUserMap)) {
 			throw new RuntimeException("The Map is empty");
 		}
-		return idToUserMap.values().stream().toList();
+		//return idToUserMap.values().stream().toList();
+		return idToUserMap.values().stream().collect(Collectors.toList());
 	}
 	
 	
