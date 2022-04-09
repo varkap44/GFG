@@ -13,11 +13,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 @Configuration
-@ComponentScan({"controller", "service"})
+//@ComponentScan({"controller", "service"})
 @EnableAutoConfiguration
 @SpringBootApplication
-@EntityScan("entity")
-@EnableJpaRepositories("repository")
+//@EntityScan("entity")
+//@EnableJpaRepositories("repository")
 public class MywalletApplication {
 
 	public static void main(String[] args) {

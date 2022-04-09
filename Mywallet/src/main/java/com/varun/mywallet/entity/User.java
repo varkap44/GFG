@@ -1,12 +1,14 @@
 package com.varun.mywallet.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
-import org.hibernate.annotations.Table;
 import org.springframework.data.annotation.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,17 +21,20 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(appliesTo = "User")
+@Table(name="User")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class User implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonIgnore
+	@Column
 	private String id;
 	
 	@NonNull

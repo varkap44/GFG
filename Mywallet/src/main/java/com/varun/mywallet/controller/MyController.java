@@ -3,7 +3,6 @@ package com.varun.mywallet.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.varun.mywallet.model.NoUserException;
 import com.varun.mywallet.model.Transaction;
 import com.varun.mywallet.model.UserInfo;
 import com.varun.mywallet.service.TransactionService;
@@ -52,10 +52,9 @@ public class MyController implements InitializingBean {
 	@GetMapping("/users")
 	public List<UserInfo> getAll() {
 		if (CollectionUtils.isEmpty(idToUserMap)) {
-			throw new RuntimeException("The Map is empty");
+			throw new NoUserException();
 		}
-		//return idToUserMap.values().stream().toList();
-		return idToUserMap.values().stream().collect(Collectors.toList());
+		return idToUserMap.values().stream().toList();
 	}
 	
 	
