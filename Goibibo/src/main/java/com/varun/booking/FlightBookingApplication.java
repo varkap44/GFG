@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AirBnBApplication {
+public class FlightBookingApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AirBnBApplication.class, args);
+		SpringApplication.run(FlightBookingApplication.class, args);
 	}
 
 }
